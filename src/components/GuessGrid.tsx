@@ -11,20 +11,22 @@ const GuessGrid: React.FC<Props> = ({ guesses, statuses }) => {
     const guess = guesses[i] || '';
     const status = statuses[i] || [];
     return (
-      <div key={i} className="flex justify-center mb-2">
+      <div key={i} className="flex justify-center gap-3 mb-2">
         {Array.from({ length: 5 }).map((_, j) => {
           const char = guess[j] || '';
-          const cls = status[j]
-            ? status[j] === 'correct'
+          const tileStatus = status[j];
+          const baseClasses = 'w-14 h-14 flex items-center justify-center text-xl font-semibold rounded-md transition-colors duration-150 ease-in-out';
+          const dynamicClasses = tileStatus
+            ? tileStatus === 'correct'
               ? 'bg-green-500 text-white'
-              : status[j] === 'present'
+              : tileStatus === 'present'
               ? 'bg-yellow-500 text-white'
-              : 'bg-gray-500 text-white'
+              : 'bg-gray-700 text-white'
             : 'bg-white border border-gray-400 text-black';
           return (
             <div
               key={j}
-              className={`${cls} w-12 h-12 flex items-center justify-center mx-1 uppercase font-bold`}
+              className={`${baseClasses} ${dynamicClasses}`}
             >
               {char}
             </div>
@@ -35,7 +37,7 @@ const GuessGrid: React.FC<Props> = ({ guesses, statuses }) => {
   });
 
   return (
-    <div className="bg-black bg-opacity-60 p-4 rounded-xl">
+    <div className="bg-black bg-opacity-20 backdrop-blur-sm p-6 rounded-lg shadow-inner">
       {rows}
     </div>
   );

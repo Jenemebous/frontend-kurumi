@@ -72,15 +72,21 @@ const Game: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-black text-white p-4">
-      <div className="opacity-80">
+    <div className="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-gray-900 via-black to-gray-900 p-4">
+      
+      <div
+        className="p-4 rounded-xl mb-6"
+        style={{ backgroundColor: 'hsla(219, 49.20%, 11.60%, 0.32)' }}
+      >
         <GuessGrid guesses={[...guesses, currentGuess]} statuses={statuses} />
       </div>
+
       <div className="opacity-80">
         <Keyboard onKey={handleKey} keyStatuses={keyStatuses} />
       </div>
+
       {message && (
-        <div className="mt-6 px-6 py-3 text-center text-xl font-semibold bg-green-600/90 text-white rounded-2xl shadow-lg transition-all">
+        <div className="absolute bottom-32 px-6 py-3 text-center text-xl font-semibold bg-green-600/90 text-white rounded-2xl shadow-lg transition-all z-50">
           {message}
         </div>
       )}

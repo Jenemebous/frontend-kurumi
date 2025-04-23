@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 
-
 interface Address {
   street: string;
   neighborhood: string;
@@ -69,12 +68,17 @@ const Register: React.FC = () => {
   };
 
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: 'hsl(0, 0%, 5%)' }} className="flex items-center justify-center">
-      <form onSubmit={handleSubmit} className="w-full max-w-md p-6 rounded-lg shadow-md" style={{ backgroundColor: '#2c2c2c', color: 'whitesmoke' }}>
+    <div className="min-h-screen flex items-center justify-center
+                    bg-gradient-to-b from-gray-900 via-black to-gray-900 p-4">
+      <form
+        onSubmit={handleSubmit}
+        className="w-full max-w-md p-6 rounded-lg shadow-md backdrop-blur-sm text-white"
+        style={{ backgroundColor: 'rgba(54, 54, 54, 0.1)' }} // 10% de opacidade
+      >
         <h2 className="text-2xl font-bold mb-6 text-center">Cadastro</h2>
         {message && <p className="text-red-400 mb-4 text-sm">{message}</p>}
         <input
-          className="w-full p-2 mb-4 rounded bg-gray-800 border border-gray-600 placeholder-gray-400"
+          className="w-full p-2 mb-4 rounded bg-gray-800 border border-gray-600 placeholder-gray-400 text-white"
           type="text"
           placeholder="Usuário"
           value={nickname}
@@ -83,7 +87,7 @@ const Register: React.FC = () => {
           required
         />
         <input
-          className="w-full p-2 mb-4 rounded bg-gray-800 border border-gray-600 placeholder-gray-400"
+          className="w-full p-2 mb-4 rounded bg-gray-800 border border-gray-600 placeholder-gray-400 text-white"
           type="email"
           placeholder="E-mail"
           value={email}
@@ -92,7 +96,7 @@ const Register: React.FC = () => {
           required
         />
         <input
-          className="w-full p-2 mb-4 rounded bg-gray-800 border border-gray-600 placeholder-gray-400"
+          className="w-full p-2 mb-4 rounded bg-gray-800 border border-gray-600 placeholder-gray-400 text-white"
           type="password"
           placeholder="Senha"
           value={password}
@@ -101,7 +105,7 @@ const Register: React.FC = () => {
           required
         />
         <input
-          className="w-full p-2 mb-4 rounded bg-gray-800 border border-gray-600 placeholder-gray-400"
+          className="w-full p-2 mb-4 rounded bg-gray-800 border border-gray-600 placeholder-gray-400 text-white"
           type="password"
           placeholder="Confirmar Senha"
           value={confirmPassword}
@@ -109,7 +113,7 @@ const Register: React.FC = () => {
           required
         />
         <input
-          className="w-full p-2 mb-4 rounded bg-gray-800 border border-gray-600 placeholder-gray-400"
+          className="w-full p-2 mb-4 rounded bg-gray-800 border border-gray-600 placeholder-gray-400 text-white"
           type="text"
           placeholder="CEP"
           value={cep}
@@ -118,36 +122,44 @@ const Register: React.FC = () => {
           required
         />
         <input
-          className="w-full p-2 mb-4 rounded bg-gray-800 border border-gray-600 placeholder-gray-400"
+          className="w-full p-2 mb-4 rounded bg-gray-800 border border-gray-600 placeholder-gray-400 text-white"
           type="text"
           placeholder="Rua"
           value={address.street}
           readOnly
         />
         <input
-          className="w-full p-2 mb-4 rounded bg-gray-800 border border-gray-600 placeholder-gray-400"
+          className="w-full p-2 mb-4 rounded bg-gray-800 border border-gray-600 placeholder-gray-400 text-white"
           type="text"
           placeholder="Bairro"
           value={address.neighborhood}
           readOnly
         />
         <input
-          className="w-full p-2 mb-4 rounded bg-gray-800 border border-gray-600 placeholder-gray-400"
+          className="w-full p-2 mb-4 rounded bg-gray-800 border border-gray-600 placeholder-gray-400 text-white"
           type="text"
           placeholder="Cidade"
           value={address.city}
           readOnly
         />
         <input
-          className="w-full p-2 mb-4 rounded bg-gray-800 border border-gray-600 placeholder-gray-400"
+          className="w-full p-2 mb-4 rounded bg-gray-800 border border-gray-600 placeholder-gray-400 text-white"
           type="text"
           placeholder="Estado"
           value={address.state}
           readOnly
         />
-        <button type="submit" className="w-full bg-red-800 hover:bg-red-700 text-white py-2 rounded">Cadastrar</button>
+        <button
+          type="submit"
+          className="w-full bg-red-800 hover:bg-red-700 text-white py-2 rounded"
+        >
+          Cadastrar
+        </button>
         <p className="text-sm text-center mt-4">
-          Já tem uma conta? <Link to="/login" className="text-red-400 hover:underline">Faça login</Link>
+          Já tem uma conta?{' '}
+          <Link to="/login" className="text-red-400 hover:underline">
+            Faça login
+          </Link>
         </p>
       </form>
     </div>

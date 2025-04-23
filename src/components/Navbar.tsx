@@ -6,7 +6,7 @@ const Navbar: React.FC = () => {
   const location = useLocation();
 
   return (
-    <nav className="w-full bg-gray-900 text-white p-4 shadow-md flex justify-center space-x-6">
+    <nav className="w-full bg-red-900 text-white p-4 shadow-md flex justify-center space-x-6">
       <Link
         to="/login"
         className={`hover:text-red-400 transition ${
